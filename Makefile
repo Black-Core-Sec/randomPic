@@ -1,6 +1,11 @@
+init:
+	composer install
+	cp ./.env.example ./.env
 build:
 	./vendor/bin/sail build --no-cache
 up:
-	./vendor/bin/sail up
+	./vendor/bin/sail up -d
 down:
 	./vendor/bin/sail down
+keygen:
+	./vendor/bin/sail artisan key:generate
