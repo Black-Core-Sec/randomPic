@@ -13,10 +13,14 @@ class AdminController extends Controller
     /**
      * @return Factory|View|Application
      */
-    public function index(): Factory|View|Application
+    public function index(Request $request): Factory|View|Application
     {
         $pictures = Pic::all();
-        return view('admin', ['pictures' => $pictures]);
+        $token = $request->get('token');
+        return view('admin', [
+            'pictures' => $pictures,
+            'token' => $token
+        ]);
     }
 
     public function discardApprovalStatus(Request $request) {

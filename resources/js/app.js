@@ -23,8 +23,9 @@ $('#approve-button, #reject-button').click(function () {
 
 $('.discard-approval-button').click(function () {
     let id = $(this).data('id');
+    let token = $(this).data('token');
     $.ajax({
-        url: "/admin/discard-approval-status?id=" + id,
+        url: "/admin/discard-approval-status?token=" + token + "&id=" + id,
         type: "POST",
         success: function (data) {
             location.reload();

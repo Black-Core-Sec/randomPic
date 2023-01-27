@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
 Route::post('/approve', [\App\Http\Controllers\MainController::class, 'approve']);
 
-Route::prefix('admin')->group(function () {
+Route::middleware('auth.admin.token')->prefix('admin')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminController::class, 'index']);
     Route::post('/discard-approval-status', [\App\Http\Controllers\AdminController::class, 'discardApprovalStatus']);
 });

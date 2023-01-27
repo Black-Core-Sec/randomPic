@@ -25,6 +25,7 @@
                             <tr>
                                 <th>id</th>
                                 <th>external id</th>
+                                <th>preview</th>
                                 <th>is approve</th>
                                 <th>discard approval status</th>
                             </tr>
@@ -34,10 +35,12 @@
                                 <tr class="text-center align-middle">
                                     <td>{{ $picture->id }}</td>
                                     <td><a href="{{ $picture->link }}">{{ $picture->external_id }}</a></td>
+                                    <td><img src="{{ $picture->link }}" alt="" height="80px"></td>
                                     <td>{{ $picture->is_approved }}</td>
                                     <td>
                                         <button class="discard-approval-button"
-                                                data-id="{{ $picture->id }}">X</button>
+                                                data-id="{{ $picture->id }}"
+                                                data-token="{{ $token }}">X</button>
                                     </td>
                                 </tr>
                             @endforeach
