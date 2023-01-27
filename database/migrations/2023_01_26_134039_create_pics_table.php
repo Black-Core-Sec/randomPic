@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pics', function (Blueprint $table) {
             $table->id();
+            $table->integer('external_id');
             $table->string('link')->unique();
             $table->boolean('is_approved')->nullable();
             $table->timestamps();

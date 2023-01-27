@@ -49,4 +49,14 @@ class RandomPicService
 
         return $picUri;
     }
+
+    /**
+     * @param string $uri
+     * @return string
+     */
+    public function getIdByUri(string $uri): string
+    {
+        $idPosStart = strpos($uri, '/id/')+4;
+        return substr($uri, $idPosStart, strpos($uri, '/', $idPosStart) - $idPosStart);
+    }
 }

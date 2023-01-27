@@ -30,7 +30,10 @@ class MainController extends Controller
             abort(500, 'Picture service is not available.');
         }
 
-        Pic::firstOrCreate(['link' => $picLink]);
+        Pic::firstOrCreate([
+            'external_id' => $this->randomPicService->getIdByUri($picLink),
+            'link' => $picLink
+        ]);
 
         return view('main', ['picLink' => $picLink]);
     }

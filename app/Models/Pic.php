@@ -17,6 +17,7 @@ class Pic extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'external_id',
         'link',
         'is_approved'
     ];
