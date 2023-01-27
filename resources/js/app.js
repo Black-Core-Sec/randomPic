@@ -14,6 +14,23 @@ $('#approve-button, #reject-button').click(function () {
         type: "POST",
         success: function (data) {
             location.reload();
+        },
+        error: function () {
+            alert('Error !');
+        }
+    });
+});
+
+$('.discard-approval-button').click(function () {
+    let id = $(this).data('id');
+    $.ajax({
+        url: "/admin/discard-approval-status?id=" + id,
+        type: "POST",
+        success: function (data) {
+            location.reload();
+        },
+        error: function () {
+            alert('Error !');
         }
     });
 });
